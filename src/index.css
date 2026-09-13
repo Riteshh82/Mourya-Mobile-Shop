@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.container-shop {
+  @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-marigold-400 px-6 py-3 text-sm font-semibold text-navy-600 shadow-card transition-transform hover:scale-[1.03] hover:bg-marigold-500 active:scale-[0.98];
+}
+
+.btn-whatsapp {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white shadow-card transition-transform hover:scale-[1.03] hover:bg-[#20b858] active:scale-[0.98];
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy-500 px-6 py-3 text-sm font-semibold text-navy-500 transition-colors hover:bg-navy-500 hover:text-white;
+}
+
+:focus-visible {
+  outline: 3px solid #12807E;
+  outline-offset: 2px;
+}
