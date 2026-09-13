@@ -6,9 +6,10 @@ export default function Footer() {
   const whatsappHref = buildWhatsAppLink("Hi, I have a query about your products/services.");
   const year = new Date().getFullYear();
 
-  return (
-    <footer className="bg-navy-500 pt-14 text-paper/90">
-      <div className="container-shop grid gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-4">
+ return (
+  <footer className="relative bg-navy-500 pt-14 text-paper/90">
+    <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-400 via-marigold-400 to-teal-400"/>
+    <div className="container-shop grid gap-10 pb-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <p className="font-display text-lg font-bold text-paper">{shopInfo.shopName}</p>
           <p className="mt-2 text-sm leading-relaxed text-paper/70">

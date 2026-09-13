@@ -28,32 +28,42 @@ export default function Navbar() {
   return (
     <header
       className={`sticky top-0 z-50 transition-shadow ${
-        scrolled ? "bg-paper/95 shadow-md backdrop-blur" : "bg-paper/90 backdrop-blur"
+        scrolled
+          ? "bg-paper/95 shadow-md backdrop-blur"
+          : "bg-paper/90 backdrop-blur"
       }`}
     >
       <nav className="container-shop flex h-16 items-center justify-between">
-        <a href="#home" className="flex items-center gap-2 font-display text-lg font-bold text-navy-600">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-navy-600 text-marigold-400">
+        <a
+          href="#home"
+          className="group flex items-center gap-2 font-display text-lg font-bold text-navy-600"
+        >
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-navy-500 to-navy-600 text-marigold-400 shadow-card transition-transform duration-300 group-hover:rotate-12">
             {shopInfo.shopName?.charAt(0) || "S"}
           </span>
           <span className="hidden sm:inline">{shopInfo.shopName}</span>
         </a>
 
-        <ul className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-sm font-semibold text-navy-500 transition-colors hover:text-teal-500"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
+       <ul className="hidden items-center gap-8 md:flex">
+  {navLinks.map((link) => (
+    <li key={link.href}>
+      <a
+        href={link.href}
+        className="group relative text-sm font-semibold text-navy-500 transition-colors hover:text-teal-500"
+      >
+        {link.label}
+        <span className="absolute -bottom-1 left-0 h-0.5 w-0 rounded-full bg-teal-500 transition-all duration-300 group-hover:w-full" />
+      </a>
+    </li>
+  ))}
+</ul>
         <div className="hidden md:block">
-          <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-whatsapp"
+          >
             <MessageCircle className="h-4 w-4" />
             WhatsApp Us
           </a>

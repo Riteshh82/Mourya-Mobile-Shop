@@ -9,7 +9,7 @@ export default function WhatsAppFloat() {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-card transition-transform hover:scale-105 md:hidden"
+      className="fixed bottom-5 right-5 z-50 flex h-14 w-14 animate-ringPulse items-center justify-center rounded-full bg-gradient-to-br from-[#25D366] to-[#1FB855] text-white shadow-lift transition-transform hover:scale-110 md:hidden"
       aria-label="Chat on WhatsApp"
     >
       <MessageCircle className="h-7 w-7" />

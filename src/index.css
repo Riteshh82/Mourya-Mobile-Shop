@@ -12,6 +12,7 @@ html {
   }
   * {
     animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
 }
@@ -20,19 +21,89 @@ html {
   @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
 }
 
+/* ---------- Buttons ---------- */
+
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full bg-marigold-400 px-6 py-3 text-sm font-semibold text-navy-600 shadow-card transition-transform hover:scale-[1.03] hover:bg-marigold-500 active:scale-[0.98];
+  @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-marigold-400 to-marigold-500 px-6 py-3 text-sm font-semibold text-navy-600 shadow-glow transition-transform duration-300 hover:scale-[1.04] hover:shadow-lift active:scale-[0.97];
 }
 
 .btn-whatsapp {
-  @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white shadow-card transition-transform hover:scale-[1.03] hover:bg-[#20b858] active:scale-[0.98];
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#25D366] to-[#1FB855] px-6 py-3 text-sm font-semibold text-white shadow-card transition-transform duration-300 hover:scale-[1.04] hover:shadow-lift active:scale-[0.97];
 }
 
 .btn-outline {
-  @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy-500 px-6 py-3 text-sm font-semibold text-navy-500 transition-colors hover:bg-navy-500 hover:text-white;
+  @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy-500 px-6 py-3 text-sm font-semibold text-navy-500 transition-colors duration-300 hover:bg-navy-500 hover:text-white;
 }
 
 :focus-visible {
   outline: 3px solid #12807E;
   outline-offset: 2px;
+}
+
+/* ---------- Rich-UI utilities ---------- */
+
+/* Gradient text for the one true hero accent */
+.text-gradient {
+  background: linear-gradient(100deg, #F4A93B 0%, #EE9520 45%, #12807E 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Soft blurred blobs used behind the hero visual */
+.bg-blob {
+  filter: blur(50px);
+  opacity: 0.55;
+}
+
+/* Card shine-sweep on hover */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+.shine:hover::after {
+  transform: translateX(120%);
+}
+
+/* Animated gradient shimmer background (used sparingly) */
+.bg-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(244, 169, 59, 0.15) 25%,
+    rgba(244, 169, 59, 0.35) 50%,
+    rgba(244, 169, 59, 0.15) 75%
+  );
+  background-size: 200% 100%;
+}
+
+/* Hand-drawn underline stroke that draws itself in once on load */
+.draw-underline {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: drawIn 0.9s 0.5s ease-out forwards;
+}
+@keyframes drawIn {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Dotted grid backdrop, subtle texture instead of a flat block color */
+.bg-dot-grid {
+  background-image: radial-gradient(circle, rgba(27, 39, 71, 0.14) 1.4px, transparent 1.4px);
+  background-size: 22px 22px;
 }
